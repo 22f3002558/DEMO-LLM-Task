@@ -1,4 +1,4 @@
-# DEMO LLM Task
+# Demo LLM Task
 
 Brief: Generate a minimal static webpage demo
 
