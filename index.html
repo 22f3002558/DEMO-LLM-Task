@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>DEMO LLM Task - Captcha Demo</title>
+  </head>
+  <body>
+    <h1 id="title">DEMO LLM Task demo</h1>
+    <img id="captcha" alt="captcha" style="max-width:400px"/>
+    <div id="solution">(not solved - demo)</div>
+
+    <script>
+      function getParam(n) {
+        return new URLSearchParams(window.location.search).get(n);
+      }
+      const url = getParam('url');
+      if(url) document.getElementById('captcha').src = url;
+      // demo solver: set fake solution after 800ms
+      const img = document.getElementById('captcha');
+      img.addEventListener('load', () => {
+        setTimeout(()=>document.getElementById('solution').textContent = 'SAMPLE-SOLUTION', 800);
+      });
+    </script>
+  </body>
+</html>
