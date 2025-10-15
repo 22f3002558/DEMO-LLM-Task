@@ -1,25 +1,26 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8"/>
-    <title>Demo LLM Task - Captcha Demo</title>
-  </head>
-  <body>
-    <h1 id="title">Demo LLM Task demo</h1>
-    <img id="captcha" alt="captcha" style="max-width:400px"/>
-    <div id="solution">(not solved - demo)</div>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Captcha Solver Demo</title>
     <script>
-      function getParam(n) {
-        return new URLSearchParams(window.location.search).get(n);
-      }
-      const url = getParam('url');
-      if(url) document.getElementById('captcha').src = url;
-      // demo solver: set fake solution after 800ms
-      const img = document.getElementById('captcha');
-      img.addEventListener('load', () => {
-        setTimeout(()=>document.getElementById('solution').textContent = 'SAMPLE-SOLUTION', 800);
-      });
+        function solveCaptcha() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const captchaUrl = urlParams.get('url');
+            if (captchaUrl) {
+                // Simulate captcha solving (replace with actual solving logic)
+                document.getElementById('solution').innerText = 'Solved Captcha Text';
+            } else {
+                document.getElementById('solution').innerText = 'No captcha URL provided.';
+            }
+        }
+        window.onload = solveCaptcha;
     </script>
-  </body>
+</head>
+<body>
+    <h1>Captcha Solver Demo</h1>
+    <img id="captchaImage" src="" alt="Captcha Image" />
+    <div id="solution"></div>
+</body>
 </html>
